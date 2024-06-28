@@ -1,14 +1,21 @@
 import { Avatar, AvatarFallback, AvatarImage } from './components/ui/avatar'
 import { useQuery } from '@tanstack/react-query'
 import axios from 'axios'
-import { ArrowLeft, SquarePen, EllipsisVertical, Users,Phone,Message } from 'lucide-react'
+import {
+  ArrowLeft,
+  SquarePen,
+  EllipsisVertical,
+  Users,
+  Phone,
+  MessageSquareX,
+} from 'lucide-react'
 import {
   DropdownMenu,
   DropdownMenuTrigger,
   DropdownMenuContent,
   DropdownMenuSeparator,
   DropdownMenuLabel,
-} from './components/ui/dropdown-menu'
+} from '@/components/ui/dropdown-menu'
 
 export default function App() {
   const { data } = useQuery({
@@ -63,18 +70,19 @@ export default function App() {
             <DropdownMenuTrigger>
               <EllipsisVertical size={24} />
             </DropdownMenuTrigger>
-            <DropdownMenuContent className="relative -left-4">
+            <DropdownMenuContent className="relative -left-4 w-[156px]">
               <DropdownMenuLabel className="flex gap-1 items-center text-sm font-semibold leading-[17.57px] text-[#141E0D] py-[14px] px-3">
                 <Users size={20} />
                 Members
               </DropdownMenuLabel>
               <DropdownMenuSeparator />
               <DropdownMenuLabel className="flex gap-1 items-center text-sm font-semibold leading-[17.57px] text-[#141E0D] py-[14px] px-3">
-                <Phone size={20}/>
+                <Phone size={20} />
                 Share Number
               </DropdownMenuLabel>
               <DropdownMenuSeparator color="#E5E5E0" />
               <DropdownMenuLabel className="flex gap-1 items-center text-sm font-semibold leading-[17.57px] text-[#141E0D] py-[14px] px-3">
+                <MessageSquareX size={20} />
                 Report
               </DropdownMenuLabel>
             </DropdownMenuContent>
