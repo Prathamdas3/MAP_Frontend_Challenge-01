@@ -3,9 +3,12 @@ import react from '@vitejs/plugin-react-swc'
 import path from 'path'
 import { VitePWA, VitePWAOptions } from 'vite-plugin-pwa'
 
-const manifest: Partial<VitePWAOptions> = {
-  registerType: 'prompt',
-
+const manifestForPlugIn: Partial<VitePWAOptions> = {
+  registerType: 'autoUpdate',
+  includeAssets: [],
+  // devOptions: {
+  //   enabled: true,
+  // },
   manifest: {
     theme_color: '#ffffff',
     background_color: '#ffffff',
@@ -183,7 +186,7 @@ const manifest: Partial<VitePWAOptions> = {
 // https://vitejs.dev/config/
 export default defineConfig({
   base: './',
-  plugins: [react(), VitePWA(manifest)],
+  plugins: [react(), VitePWA(manifestForPlugIn)],
   server: {
     port: 3000,
   },
