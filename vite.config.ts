@@ -4,10 +4,14 @@ import path from 'path'
 import { VitePWA, VitePWAOptions } from 'vite-plugin-pwa'
 
 const manifestForPlugIn: Partial<VitePWAOptions> = {
-  registerType: 'prompt',
+  registerType: 'autoUpdate',
   devOptions: {
     enabled: true,
   },
+  workbox: {
+    globPatterns: ['**/*'],
+  },
+  includeAssets: ['**/*'],
   manifest: {
     theme_color: '#ffffff',
     background_color: '#ffffff',
