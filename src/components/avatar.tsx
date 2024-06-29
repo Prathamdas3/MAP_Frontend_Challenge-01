@@ -2,22 +2,14 @@ import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar'
 
 export default function ProfilePic({
   src,
-  width,
-  height,
+  className,
 }: {
   src: string
-  width: number
-  height: number
+  className?: string
 }) {
   return (
-    <Avatar>
-      <AvatarImage
-        src={src}
-        height={height}
-        width={width}
-        className=""
-        alt="group logo"
-      />
+    <Avatar className={className}>
+      <AvatarImage src={src} alt="group logo" />
       <AvatarFallback>CN</AvatarFallback>
     </Avatar>
   )

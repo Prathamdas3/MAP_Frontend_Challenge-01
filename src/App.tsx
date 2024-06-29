@@ -44,8 +44,8 @@ export default function App() {
   }, [fetchNextPage, inView])
 
   return (
-    <main className=" sm:container">
-      <header className="fixed top-0 w-[400px] py-5 px-4 space-y-4 bg-white z-50">
+    <main className="sm:container">
+      <header className="fixed top-0 z-50 w-full px-4 py-5 space-y-4 bg-white sm:container ">
         <nav className="flex items-center justify-between">
           <div className="flex items-center gap-1">
             <ArrowLeft size={24} />
@@ -59,8 +59,7 @@ export default function App() {
           <div className="flex gap-4">
             <ProfilePic
               src="https://github.com/shadcn.png"
-              height={48}
-              width={48}
+              className="w-12 h-12"
             />
             <div>
               <p className="text-[#606060] text-[16px] font-medium leading-[20.08px]">
@@ -82,15 +81,15 @@ export default function App() {
         </div>
       </header>
 
-      <article className="px-4 h-[590px] py-5  overflow-y-auto hide_scrollbar relative top-36 ">
+      <article className="relative h-screen px-4 py-5 overflow-y-auto hide_scrollbar top-36 ">
         <div className="flex items-center justify-center gap-3 mb-8 ">
-          <div className="w-1/3 border"></div>
+          <div className="w-1/3 border sm:w-[45%]"></div>
           <p className="text-[#B7B7B7] leading-[17.57px] text-sm font-normal">
             {newDate}
           </p>
-          <div className="w-1/3 border"></div>
+          <div className="w-1/3 border sm:w-[45%]"></div>
         </div>
-        <div className="flex flex-col gap-5 ">
+        <div className="flex flex-col w-full gap-5">
           {data?.pages.map((page, index) => (
             <div className="flex flex-col gap-5" key={index}>
               {page.chats.map((chat: chat) => (
@@ -108,8 +107,8 @@ export default function App() {
           <div ref={ref}></div>
         </div>
       </article>
-      <footer className="fixed bottom-0 px-4 pt-5 bg-white w-[400px] pb-16 z-50">
-        <div className="flex items-center gap-4">
+      <footer className="fixed bottom-0 z-50 w-full px-4 py-2 bg-white sm:container">
+        <div className="flex items-center gap-4 p-3">
           <Input
             placeholder="Reply to @Rohit Yadav"
             className=" placeholder:text-[#B7B7B7] border-none outline-none focus-visible:outline-none text-[#141E0D]  focus-visible:ring-0"
