@@ -4,7 +4,7 @@ import path from 'path'
 import { VitePWA, VitePWAOptions } from 'vite-plugin-pwa'
 
 const manifestForPlugIn: Partial<VitePWAOptions> = {
-  registerType: 'autoUpdate',
+  registerType: 'prompt',
   devOptions: {
     enabled: true,
   },
@@ -27,6 +27,7 @@ const manifestForPlugIn: Partial<VitePWAOptions> = {
         src: './public/icon-192x192.png',
         sizes: '192x192',
         type: 'image/png',
+        purpose: 'favicon',
       },
       {
         src: './public/icon-256x256.png',
