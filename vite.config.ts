@@ -8,9 +8,9 @@ const manifestForPlugIn: Partial<VitePWAOptions> = {
   devOptions: {
     enabled: true,
   },
-  workbox: {
-    globPatterns: ['**/*'],
-  },
+  // workbox: {
+  //   globPatterns: ['**/*'],
+  // },
   includeAssets: ['**/*'],
   manifest: {
     theme_color: '#ffffff',
