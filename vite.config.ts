@@ -5,9 +5,9 @@ import { VitePWA, VitePWAOptions } from 'vite-plugin-pwa'
 
 const manifestForPlugIn: Partial<VitePWAOptions> = {
   registerType: 'prompt',
-  devOptions: {
-    enabled: true,
-  },
+  // devOptions: {
+  //   enabled: true,
+  // },
   // workbox: {
   //   globPatterns: ['**/*'],
   // },
