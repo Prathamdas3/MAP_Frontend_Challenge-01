@@ -13,17 +13,18 @@ export default function useAPI() {
     }
   }
 
-  const { data, fetchNextPage, isPending, hasNextPage } = useInfiniteQuery({
-    queryKey: ['chats'],
-    queryFn: fetchData,
-    initialPageParam: 0,
-    getNextPageParam: (lastPage, lastPageParam) => {
-      if (!lastPage) {
-        return undefined
-      }
-      return lastPageParam.length + 1
-    },
-  })
+  const { data, fetchNextPage, isPending, hasNextPage, isFetchingNextPage } =
+    useInfiniteQuery({
+      queryKey: ['chats'],
+      queryFn: fetchData,
+      initialPageParam: 0,
+      getNextPageParam: (lastPage, lastPageParam) => {
+        if (!lastPage) {
+          return undefined
+        }
+        return lastPageParam.length + 1
+      },
+    })
 
   const pages = data?.pages
   const date = new Date(data?.pages[0].chats[0].time)
@@ -31,5 +32,12 @@ export default function useAPI() {
     month: 'short',
   })}, ${date.getFullYear()}`
 
-  return { pages, newDate, fetchNextPage, isPending, hasNextPage }
+  return {
+    pages,
+    newDate,
+    fetchNextPage,
+    isPending,
+    hasNextPage,
+    isFetchingNextPage,
+  }
 }
