@@ -17,8 +17,7 @@ type chat = {
 }
 
 export default function Chats() {
-  const { pages, hasNextPage, isPending, fetchNextPage, isFetchingNextPage } =
-    useAPI()
+  const { pages, hasNextPage, isPending, fetchNextPage } = useAPI()
   const chats = useMemo(
     () => pages?.flatMap((page) => page.chats) ?? [],
     [pages]
@@ -55,7 +54,7 @@ export default function Chats() {
 
   return (
     <div ref={chatContainerRef}>
-      {isPending || isFetchingNextPage ? (
+      {isPending ? (
         <PlaceHolder />
       ) : (
         <div className="flex flex-col w-full gap-5">
